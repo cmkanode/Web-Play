@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>RPG - Map Test</title>
+<style type="text/css">
+html, body { margin: 0px; padding: 0px; }
+body {
+	background-color: #999;
+	background-image: url('bg-map.png');
+}
+.tile{ position: absolute; }
+.toolbar{
+	border: solid 1px #000;
+	background-color: #CCC;
+	padding: 6px;
+	width: 72px;
+	float: right;
+}
+</style>
+<script type="text/javascript" src="tile_move.js"></script>
+<script type="text/javascript" src="tile.js"></script>
+</head>
+
+<body>
+<input type="hidden" name="numberoftiles" id="numberoftiles" value="2" />
+<div id="container">
+<img alt="o" src="tileGreen.png" width="59" height="48" class="tile" id="tile0" style="top: 0px; left: 0px;" onclick="clickAndDrag(this)" />
+<img alt="o" id="tile1" src="tileYellow.png" class="tile" style="top: 48px; left: 0px;" onclick="clickAndDrag(this)" />
+</div>
+<div id="tileBar" class="toolbar">
+	<img alt="o" id="baseRed" src="tileRed.png" onclick="copyTile(this.src)" />
+	<img alt="o" id="baseGreen" src="tileGreen.png" onclick="copyTile(this.src)" />
+	<img alt="o" id="baseBlue" src="tileBlue.png" onclick="copyTile(this.src)" />
+	<img alt="o" id="baseYellow" src="tileYellow.png" onclick="copyTile(this.src)" />
+</div>
+</body>
+</html>

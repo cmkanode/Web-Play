@@ -1,0 +1,468 @@
+﻿body 
+{
+	margin:0;
+	padding:0;
+}
+
+img 
+{
+	border:none;
+}
+
+.FloatClear 
+{
+	width:0;
+	height:0;
+	margin:0;
+	padding:0;
+	clear:both;
+}
+
+.Header 
+{
+	width:950px;
+	height:165px;
+	margin:0 auto;
+	padding:0;
+}
+
+#MainContentWrapper 
+{
+	width:950px;
+	margin:0 auto;
+	padding:0;
+}
+
+.HeartCareWrapper 
+{
+	width:520px;
+	height:490px;
+	margin:0 auto;
+	padding:425px 220px 0 211px;
+	background:#fff url(../Images/HeartCare/HeartCareTemplate.png) no-repeat;
+}
+
+.HeartAttackWrapper 
+{
+	width:520px;
+	height:640px;
+	margin:0 auto;
+	padding:280px 220px 0 211px;
+	background:#fff url(../Images/QualityHeartAttack.png) no-repeat;
+}
+
+.ChartNav 
+{
+	width:520px;
+	height:45px;
+	margin:0;
+	padding:0;
+	background:#fff url(../Images/PageElements/ChartNavBG.png) top repeat-x;
+}
+
+/*
+========================
+Two Buttons Across Top
+========================
+*/
+
+.Nav2LinkButton 
+{
+	display:block;
+	width:251px;
+	height:30px;
+	font:normal .7em Arial;
+	color:#91867e;
+	text-align:center;
+	text-decoration:none;
+	margin:0 0 0 7px;
+	padding:8px 0 0 0;
+	line-height:1;
+	border:1px solid #91867e;
+	background:#fff url(../Images/PageElements/KeyBG.png) repeat-x;
+	float:left;
+}
+
+.Nav2LinkButton:first-child 
+{
+	margin:0;
+}
+
+.Nav2LinkButton:hover 
+{
+	color:#000;
+	background:transparent url(../Images/PageElements/ChartNavBG-OverState.png) repeat-x;
+}
+
+.Nav2LinkButtonActive 
+{
+	width:253px;
+	height:37px;
+	margin:0 0 0 7px;
+	padding:8px 0 0 0;
+	font:normal .7em Arial;
+	color:#fff;
+	text-align:center;
+	text-decoration:none;
+	background-color:#91867e;
+	float:left;
+}
+
+/*
+========================
+Three Buttons Across Top
+========================
+*/
+
+.Nav3LinkButton 
+{
+	display:block;
+	width:167px;
+	height:30px;
+	font:normal .7em Arial;
+	color:#91867e;
+	text-align:center;
+	text-decoration:none;
+	margin:0 0 0 7px;
+	padding:8px 0 0 0;
+	line-height:1;
+	border:1px solid #91867e;
+	background:#fff url(../Images/PageElements/KeyBG.png) repeat-x;
+	float:left;
+}
+
+.Nav3LinkButton:first-child 
+{
+	margin:0;
+}
+
+.Nav3LinkButton:hover 
+{
+	color:#000;
+	background:transparent url(../Images/PageElements/ChartNavBG-OverState.png) repeat-x;
+}
+
+.Nav3LinkButtonActive 
+{
+	width:168px;
+	height:37px;
+	margin:0 0 0 7px;
+	padding:8px 0 0 0;
+	font:normal .7em Arial;
+	color:#fff;
+	text-align:center;
+	text-decoration:none;
+	background-color:#91867e;
+	float:left;
+}
+
+.Nav3LinkButtonActive:first-child 
+{
+	margin:0;
+}
+
+/*
+=======================
+Four Buttons Across Top
+=======================
+*/
+
+.Nav4LinkButton 
+{
+	display:block;
+	width:123px;
+	height:30px;
+	font:normal .7em Arial;
+	color:#91867e;
+	text-align:center;
+	text-decoration:none;
+	margin:0 0 0 7px;
+	padding:8px 0 0 0;
+	line-height:1;
+	border:1px solid #91867e;
+	background:#fff url(../Images/PageElements/KeyBG.png) repeat-x;
+	float:left;
+}
+
+.Nav4LinkButton:first-child 
+{
+	margin:0;
+}
+
+.Nav4LinkButton:hover 
+{
+	color:#000;
+	background:transparent url(../Images/PageElements/ChartNavBG-OverState.png) repeat-x;
+}
+
+.Nav4LinkButtonActive 
+{
+	width:124px;
+	height:37px;
+	margin:0 0 0 7px;
+	padding:8px 0 0 0;
+	font:normal .7em Arial;
+	color:#fff;
+	text-align:center;
+	text-decoration:none;
+	background-color:#91867e;
+	float:left;
+}
+
+.Nav4LinkButtonActive:first-child 
+{
+	margin:0;
+}
+
+/*
+=======================
+Five Buttons Across Top
+=======================
+*/
+
+.Nav5LinkButton 
+{
+	display:block;
+	width:98px;
+	height:30px;
+	font:normal .7em Arial;
+	color:#91867e;
+	text-align:center;
+	text-decoration:none;
+	margin:0 0 0 5px;
+	padding:8px 0 0 0;
+	line-height:1;
+	border:1px solid #91867e;
+	background:#fff url(../Images/PageElements/KeyBG.png) repeat-x;
+	float:left;
+}
+
+.Nav5LinkButton:first-child 
+{
+	margin:0;
+}
+
+.Nav5LinkButton:hover 
+{
+	color:#000;
+	background:transparent url(../Images/PageElements/ChartNavBG-OverState.png) repeat-x;
+}
+
+.Nav5LinkButtonActive 
+{
+	width:100px;
+	height:37px;
+	margin:0 0 0 5px;
+	padding:8px 0 0 0;
+	font:normal .7em Arial;
+	color:#fff;
+	text-align:center;
+	text-decoration:none;
+	background-color:#91867e;
+	float:left;
+}
+
+.Nav5LinkButtonActive:first-child 
+{
+	margin:0;
+}
+
+
+.ChartWrapper 
+{
+	width:518px;
+	height:333px;
+	margin:0;
+	padding:0;
+	border:1px solid #91867e;
+	background:#fff url(../Images/PageElements/ChartBG.png) repeat-x;
+}
+
+.ChartTitle 
+{
+	display:block;
+	width:518px;
+	height:23px;
+	font:bold 1em Arial;
+	text-align:center;
+	margin:0;
+	padding:7px 0 0 0;
+}
+
+.FlashChartWrapper 
+{
+	width:527px;
+	height:280px;
+	margin:0;
+	padding:0;
+}
+
+.ChartYInfo 
+{
+	width:47px;
+	height:280px;
+	margin:0;
+	padding:0;
+	float:left;
+}
+.FlashChart 
+{
+	width:450px;
+	height:280px;
+	margin:0;
+	padding:0;
+	float:left;
+}
+
+.ChartKey 
+{
+	width:518px;
+	height:38px;
+	margin:5px 0;
+	padding:0;
+	border:1px solid #91867e;
+	background:#fff url(../Images/PageElements/KeyBG.png) repeat-x;
+}
+
+.KeyTitle 
+{
+	display:block;
+	width:38px;
+	height:28px;
+	margin:0;
+	padding:10px 0 0 0;
+	font:normal .8em Arial;
+	color:#faf2ed;
+	text-align:center;
+	border-right:1px solid #91867e;
+	background-color:#91867e;
+	float:left;
+}
+
+.KeyItemWrapper 
+{
+	width:479px;
+	height:38px;
+	margin:0;
+	padding:0;
+	float:left;
+}
+
+.OneKey 
+{
+	width:310px;
+}
+
+.TwoKey
+{
+	width:370px;
+}
+
+.ThreeKey
+{
+	width:420px;
+}
+
+.KeyItems
+{
+	height:38px;
+	margin:0 auto;
+	padding:0;
+}
+
+.KeyItem 
+{
+	height:30px;
+	margin:6px 0 0 0;
+	padding:0 0 0 5px;
+	float:left;
+}
+
+.KeyItem:first-child 
+{
+	padding:0;
+}
+
+.KeyItemText 
+{
+	display:block;
+	height:18px;
+	margin:0;
+	padding:7px 0 0 0;
+	font:normal .6em Arial;
+	color:#000;
+	text-align:right;
+	float:left;
+}
+
+.KeyItemTwoLineText
+{
+	display:block;
+	height:18px;
+	margin:0;
+	padding:0;
+	font:normal .6em Arial;
+	color:#000;
+	text-align:center;
+	float:left;
+}
+
+.KeyBox 
+{
+	width:23px;
+	height:23px;
+	margin:0 0 0 5px;
+	padding:0;
+	border:1px solid #000;
+	float:left;
+}
+
+.KeyGreenBox 
+{
+	background-color:#a6bd66;	
+}
+
+.KeyBlueBox 
+{
+	background-color:#669dc7;
+}
+
+.KeyBurgundyBox 
+{
+	background-color:#944554;
+}
+
+.KeyOrangeLine 
+{
+	width:20px;
+	height:5px;
+	margin:11px 0 0 10px;
+	padding:0;
+	background-color:#d57500;
+	float:left;
+}
+
+.ChartInfoSection
+{
+    width:505px;
+	margin:0;
+	padding:5px;
+	border-left:5px solid #678f00;
+	background-color:#f0f7f0;
+}
+
+.ChartInfoSection p 
+{
+	font:normal .75em Arial;
+	color:#333;
+	margin:0;
+	padding:0;
+}
+
+.Footer 
+{
+	width:950px;
+	height:159px;
+	margin:0 auto;
+	padding:0;
+}
