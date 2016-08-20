@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Canvas Test</title>
+    <style type="text/css">
+        body {
+            background-color: #CCC;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #canvasGrid {
+            background-color: #000;
+        }
+
+
+    </style>
+    <script type="text/javascript" src="./ship.js"></script>
+    <script type="text/javascript">
+        // hexgrid object
+        function hexgrid(width, height, hexagonRadius) {
+            this.gridWidth = width;
+            this.gridHeight = height;
+            this.hexagonRadius = hexagonRadius;
+            this.Hexagon = new hexagon(this.hexagonRadius, this.hexagonRadius, this.hexagonRadius);;
+        }
+
+        hexgrid.prototype.BuildGrid = function () {
+            var paths = [];
+            var path;
+            var offsetX = 0;
+            var offsetY = 0;
+            var horizontalSpace = this.Hexagon.getHorizonalFaceLength();
+            var verticalHeight = this.Hexagon.getVerticalHeight();
+            for (a = 0; a < this.gridHeight; a++) {
+                offsetX = 0;
+                for (b = 0; b < (this.gridWidth / 2) ; b++) {
+                    if (b == 0 && a % 2 == 1) {
+                        offsetX += this.hexagonRadius + (horizontalSpace / 2);
+                    }
+                    path = this.Hexagon.getPath(offsetX, offsetY);
+                    paths.push(path);
+                    offsetX += horizontalSpace + (this.hexagonRadius * 2);
+                }
+                offsetY += (verticalHeight / 2);
+            }
+            return paths;
+        }
+
+        hexgrid.prototype.BuildCanvas = function (ctx) {
+            var paths = this.BuildGrid();
+            for (var i = 0; i < paths.length; i++) {
+                //drawHexGridToCanvas(paths[i]);
+                ctx.strokeStyle = "rgba(255,255, 255, 100)";
+                ctx.beginPath(); // start the path
+                //console.log("moveTo(" + hexPath.MoveTo.x + ", " + hexPath.MoveTo.y + ")");
+                ctx.moveTo(paths[i].MoveTo.x, paths[i].MoveTo.y);
+                for (var x = 0; x < paths[i].LineTo.length; x++) {
+                    //console.log("LineTo(" + hexPath.LineTo[i].x + ", " + hexPath.LineTo[i].y + ")");
+                    ctx.lineTo(paths[i].LineTo[x].x, paths[i].LineTo[x].y);
+                }
+                ctx.closePath();
+                ctx.stroke();
+            }
+        }
+
+        /*
+             4_5
+             / \
+            3\_/0
+             2 1
+        */
+        // hexagon object
+
+
+        function hexagon(ctrX, ctrY, radius) {
+            this.fullDegree = 360; // degrees of a full circle.  Duh!  :)
+            this.hexSides = 6;
+            this.degreeIncrement = this.fullDegree / this.hexSides; // should be 60 degrees
+            this.hex = [];
+            this.point;
+            for (i = 0; i < this.fullDegree; i += this.degreeIncrement) {
+                this.point = {
+                    x: this.getX(ctrX, radius, i),
+                    y: this.getY(ctrY, radius, i)
+                };
+                this.hex.push(this.point);
+            }
+        }
+
+        hexagon.prototype.getPath = function (offsetX, offsetY) {
+            if (typeof offsetX == "undefined") {
+                offsetX = 0;
+            };
+            if (typeof offsetY == "undefined") {
+                offsetY = 0;
+            };
+            var path = {};
+            path.MoveTo = {
+                x: (this.hex[0].x + offsetX),
+                y: (this.hex[0].y + offsetY)
+            };
+
+            path.LineTo = [];
+            for (i = 1; i < this.hex.length; i++) {
+                path.LineTo.push({
+                    x: (this.hex[i].x + offsetX),
+                    y: (this.hex[i].y + offsetY)
+                });
+            }
+            path.LineTo.push({
+                x: (this.hex[0].x + offsetX),
+                y: (this.hex[0].y + offsetY)
+            });
+            return path;
+        }
+
+        hexagon.prototype.getHorizonalFaceLength = function () {
+            return this.horizontalFaceLength = this.hex[5].x - this.hex[4].x;
+        }
+
+        hexagon.prototype.getVerticalHeight = function () {
+            return this.hex[2].y - this.hex[4].y;
+        }
+
+        hexagon.prototype.getX = function (ctrX, radius, degrees) {
+            return Math.round((ctrX + (radius * Math.cos(degrees * Math.PI / 180))));
+        }
+
+        hexagon.prototype.getY = function (ctrY, radius, degrees) {
+            return Math.round((ctrY + (radius * Math.sin(degrees * Math.PI / 180))));
+        }
+        /*******************************************************************************
+         *                    Start of public functions on the page                     *
+         *******************************************************************************/
+        var oCanvas;
+        var ctx;
+
+        window.onload = function () {
+            oCanvas = document.getElementById("canvasGrid");
+            ctx = oCanvas.getContext("2d");
+            var HexGrid = new hexgrid(10, 18, 30, "ctx");
+            HexGrid.BuildCanvas(ctx);
+
+            oCanvas = document.getElementById("canvasShip");
+            ctx = oCanvas.getContext("2d");
+            var ship = new Ship(); //Arrow(); //
+            ship.x = 210;
+            ship.y = 238;
+            ship.rotation = (120 * Math.PI / 180);
+            ship.draw(ctx);
+            var rotation = 0;
+            //*
+            window.addEventListener("keydown", function (event) {
+                switch (event.keyCode) {
+                    case 37: // left
+                        rotation = -60;
+                        break;
+                    case 39: // right
+                        rotation = 60;
+                        break;
+                    case 38: // up
+                        //ay = -0.1;
+                        break;
+                    case 40: // down
+                        //ay = 0.1;
+                        break;
+                    default:
+                        rotation = 0;
+                }
+            }, false);
+            //var mouse = utils.captureMouse(oCanvas);
+            (function drawFrame() {
+                window.requestAnimationFrame(drawFrame, oCanvas);
+                if (rotation != 0) {
+                    ctx.clearRect(0, 0, oCanvas.width, oCanvas.height);
+                    ship.rotation += (rotation * Math.PI / 180);
+                    ship.draw(ctx);
+                    rotation = 0; // reset
+                }
+            }());
+            //*/
+        }
+    </script>
+</head>
+
+<body>
+    <canvas id="canvasGrid" width="500" height="500"></canvas>
+    <canvas id="canvasShip" width="500" height="500"></canvas>
+</body>
+</html>
